@@ -1,3 +1,5 @@
+#!/usr/bin/env julia
+
 using Test
 
 @test sizeof(Bool) == 1
@@ -13,7 +15,11 @@ using Test
 @test sizeof(Float32) == 4
 @test sizeof(Float64) == 8
 
-typeof([1,2,3]) == Vector{Int64}
-typeof([1;2;3]) == Vector{Int64}
-typeof([1 2 3]) == Matrix{Int64}
+@test typeof([1, 2, 3]) == Vector{Int64}
+@test typeof([1; 2; 3]) == Vector{Int64}
+@test typeof([1 2 3]) == Matrix{Int64}
+
+@test sizeof("Julia") == 5
+@test sizeof('J') == 4
+
 
