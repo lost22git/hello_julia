@@ -60,4 +60,3 @@ mut_book = MutBook("hello julia", 11.11, ["tech", "julia"])
 mut_book.name = "the julia"
 @test mut_book.name == "the julia"
 
-

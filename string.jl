@@ -151,4 +151,5 @@ end
   @test chopsuffix("Julia", "a") == "Juli"
 
   @test chomp("abc\n") == "abc"
+
 end
