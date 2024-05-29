@@ -22,4 +22,42 @@ using Test
 @test sizeof("Julia") == 5
 @test sizeof('J') == 4
 
+@test sizeof([1, 2, 3]) == 3 * 8
+@test sizeof([1 2 3]) == 3 * 8
+
+@test sizeof(Union{Bool,Int}) == 8
+@test sizeof(Union{Bool,Int32}) == 4
+
+@enum Color begin
+  red
+  green
+  blue
+end
+
+@test sizeof(Color) == 4
+@test sizeof(blue::Color) == 4
+@test typeof(blue::Color) == Color
+
+struct Book
+  name
+  price
+  tags
+end
+
+book = Book("hello julia", 11.11, ["tech", "julia"])
+@test sizeof(book) == 3 * 8
+@test sizeof(Book) == 3 * 8
+
+mutable struct MutBook
+  name
+  price
+  tags
+end
+
+mut_book = MutBook("hello julia", 11.11, ["tech", "julia"])
+@test sizeof(mut_book) == 3 * 8
+@test sizeof(MutBook) == 3 * 8
+mut_book.name = "the julia"
+@test mut_book.name == "the julia"
+
 
