@@ -12,11 +12,11 @@ end
 using Test
 
 @t "raw string" begin
-  println(raw"'\e[33mJulia\e[m'", " => ", "\e[33mJulia\e[m")
+  @show raw"\e[33mJulia\e[m"
 end
 
 @t "regex string" begin
-  println(match(r"\d+", "33ia"))
+  @show match(r"\d+", "33ia")
 end
 
 @t "multiline string" begin
@@ -153,3 +153,5 @@ end
   @test chomp("abc\n") == "abc"
 
 end
+
+
